@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "vue.vscode-typescript-vue-plugin",
+        "vue.volar",
+        "sdras.vue-vscode-snippets",
+        "rome.rome"
+    ]
+}
