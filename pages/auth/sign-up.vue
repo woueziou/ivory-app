@@ -1,6 +1,6 @@
 <template>
     <div class="w-full flex justify-center">
-        <div class="flex flex-col  w-3/5  justify-center items-center gap-2">
+        <div class="flex flex-col  w-full md:w-3/5  justify-center items-center gap-2">
             <div class="pb-44"></div>
             <h1 class="text-xl">
                 Créer un compte
@@ -11,57 +11,57 @@
                 <InputText id="username" aria-describedby="username-help" />
             </div> -->
 
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="email">Email</label>
                 <InputText id="email" v-model="credentials.email" />
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="password">Mot de passe</label>
                 <InputText id="password" type="password" v-model="credentials.password" />
             </div>
             <div class="h-4"></div>
             <hr class="bg-black w-1/5 text-black">
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="last_name">Nom</label>
                 <InputText id="last_name" v-model="formData.last_name" />
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="first_name">Prénoms</label>
                 <InputText id="first_name" v-model="formData.first_name" />
                 <!-- <small id="username-help">Enter your username to reset your password.</small> -->
             </div>
 
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="faculty">Facultés</label>
                 <Dropdown id="faculty" v-model="formData.faculty_id" :options="faculties" option-label="name"
                     option-value="id" />
 
                 <!-- <small id="phone_number-help"> Pour d'éventuels recommandations</small> -->
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="speciality">Spécialité</label>
                 <Dropdown id="speciality" v-model="formData.speciality_id" :options="specialities" option-label="name"
                     option-value="id"  />
                 <!-- <small id="phone_number-help"> Pour d'éventuels recommandations</small> -->
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="level">Niveau d'étude</label>
                 <Dropdown id="level" v-model="formData.level_id" :options="levels" option-label="name"
                     option-value="id"  />
                 <!-- <small id="phone_number-help"> Pour d'éventuels recommandations</small> -->
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex flex-col w-4/5 md:w-2/5 gap-1">
                 <label for="phone_number">Numéro de téléphone</label>
                 <InputText id="phone_number" v-model="formData.phone" />
                 <small id="phone_number-help"> Pour d'éventuels recommandations</small>
             </div>
 
 
-            <div class="w-2/5">
+            <div class="w-4/5 md:w-2/5">
                 <Button @click="createAccount" label="Créer mon compte" class="w-full" :loading="siginup"></Button>
             </div>
             <div>ou</div>
-            <div class="w-2/5">
+            <div class="w-4/5 md:w-2/5">
                 <Button label="Se connecter" text class="w-full" @click="reachSignIn" />
             </div>
             <div></div>

@@ -1,6 +1,6 @@
 <template>
     <div class="w-screen flex overflow-auto justify-center">
-        <div class="flex flex-col overflow-auto w-3/5  justify-center items-center gap-2">
+        <div class="flex w-full flex-col overflow-auto md:w-3/5  justify-center items-center gap-2">
             <div class="pb-44"></div>
             <h1 class="text-xl">
                 Se connecter
@@ -11,11 +11,11 @@
                 <InputText id="username" aria-describedby="username-help" />
             </div> -->
 
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex w-4/5 flex-col md:w-2/5 gap-1">
                 <label for="email">Email</label>
                 <InputText id="email" v-model="credentials.email" />
             </div>
-            <div class="flex flex-col w-2/5 gap-1">
+            <div class="flex  w-4/5 flex-col md:w-2/5 gap-1">
                 <label for="password">Mot de passe</label>
                 <InputText id="password" type="password" v-model="credentials.password" />
             </div>
@@ -23,14 +23,14 @@
             <div>
                 <InlineMessage severity="error" v-if="errorMsg.length > 0">{{ errorMsg }}</InlineMessage>
             </div>
-            <div class="w-2/5">
+            <div class="md:w-2/5 w-4/5">
                 <Button :loading="working" label="Se connecter" @click="login" class="w-full" />
             </div>
 
 
             <div>ou</div>
-            <div class="w-2/5">
-                <Button label="Créer mon compte" text class="w-full" />
+            <div class="w-4/5 md:w-2/5">
+                <Button @click="reachRegister" label="Créer mon compte" text class="w-full" />
             </div>
             <div></div>
         </div>
@@ -66,6 +66,10 @@ async function login() {
     }
     working.value = false;
     navigateTo({ name: "app" })
+}
+
+function reachRegister() {
+    return navigateTo({ name:'auth-sign-up'})
 }
 </script>
 

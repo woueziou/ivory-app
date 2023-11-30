@@ -49,7 +49,7 @@
 
         <div class="fixed bottom-0 py-2 items-center justify-center flex bg-slate-50/50 w-10/12 md:w-2/5">
             <div class="flex space-x-2 md:flex-col items-center">
-                <span class=" underline">
+                <span class=" underline" @click="logout">
                     déconnexion
                 </span>
                 <span>Ivory job © 2023 </span>
@@ -82,12 +82,13 @@ async function getAvailableMessages() {
     for (const item of result.data) {
         messages.value.push(item)
     }
-
-
-
-
-
 } getAvailableMessages()
+
+async function logout(){
+    supabase.auth.signOut()
+    useSupabaseUser().value=null
+    navigateTo({name: 'index'})
+}
 </script>
 
 <style scoped></style>    
