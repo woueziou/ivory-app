@@ -4,7 +4,7 @@
     <div class="h-8"></div>
     <div class=" space-x-4">
       <Button @click="reachSignUp"> Créer un compte</Button>
-      <Button> Créer un compte</Button>
+      <Button @click="login" > Se connecter</Button>
     </div>
 
   </div>
@@ -15,6 +15,10 @@
 const router = useRouter()
 function reachSignUp() {
   router.push("/auth/sign-up")
+}
+
+async function login() {
+  navigateTo({ name:"auth-sign-in"})
 }
 // definePageMeta({
 //   middleware: "auth"

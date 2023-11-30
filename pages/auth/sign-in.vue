@@ -36,10 +36,8 @@
 
 <script setup lang="ts">
 
-
-const router = useRouter()
 async function login() {
-    router.push({ name:"app",replace:true})
+    navigateTo({name:"app"})
 }
 </script>
 

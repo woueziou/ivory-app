@@ -8,7 +8,7 @@ export default defineNuxtConfig({
 		"nuxt-icon",
 		"@vueuse/nuxt",
 		"nuxt-typed-router",
-		"nuxt-appwrite"
+		"@nuxtjs/supabase",
 	],
 	imports: {
 		dirs: [
@@ -23,15 +23,16 @@ export default defineNuxtConfig({
 		viewer: true,
 	},
 
+	supabase: {
+		redirect:false,
+
+		// url: "https://bxegwwlldktgawnqznpq.supabase.co",
+		// key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ4ZWd3d2xsZGt0Z2F3bnF6bnBxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTU5OTg1MTMsImV4cCI6MjAxMTU3NDUxM30.sKj_rnGbsivQOxSqbINQJ6nEW4Yg8uSu9Q5WH9x6Syc"
+	},
 	css: [
 		"assets/css/tailwindcss.css",
 		"assets/css/theme.css"
-	],
-	appwrite: {
-		/* module options */
-		project: '6512c8e86e0d47ad818d',
-		endpoint: 'https://cloud.appwrite.io/v1'
-	}
+	]
 
 	, build: {
 		transpile: [

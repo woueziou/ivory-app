@@ -10,6 +10,9 @@ import Avatar from 'primevue/avatar';
 import Timeline from 'primevue/timeline';
 import Rating from 'primevue/rating';
 
+
+import InlineMessage from 'primevue/inlinemessage';
+
 import Password from 'primevue/password';
 
 import Dropdown from 'primevue/dropdown';
@@ -26,6 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     nuxtApp.vueApp.component('Dropdown',Dropdown)
     nuxtApp.vueApp.component('Rating',Rating)
     nuxtApp.vueApp.component('Password',Password)
+    nuxtApp.vueApp.component('InlineMessage',InlineMessage)
     //  ! Driectives
     nuxtApp.vueApp.directive('ripple',Ripple)
     //other components that you need
