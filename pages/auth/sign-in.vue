@@ -38,8 +38,8 @@
 </template>
 
 <script setup lang="ts">
-
-const supabase = useSupabaseClient()
+import { Database } from '~/utils/supabase';
+const supabase = useSupabaseClient<Database>()
 const credentials = ref({
     email: "", password: "",
 })
@@ -47,13 +47,22 @@ const errorMsg = ref("")
 const working = ref(false)
 async function login() {
     if (working.value) { return; }
-    errorMsg.value=''
+    errorMsg.value = ''
     working.value = true;
     const response = await supabase.auth.signInWithPassword({ email: credentials.value.email, password: credentials.value.password })
     if (response.error) {
         errorMsg.value = response.error.message
         working.value = false;
         return;
+    }
+    const user = useSupabaseUser()
+    console.log(user.value?.user_metadata)
+    const userRequest = await supabase.from('profiles').select().eq('id', user.value?.id ?? '').maybeSingle()
+    if (userRequest.data !== null) {
+        localStorage.setItem('user-info', JSON.stringify({
+            first_name: userRequest.data.first_name,
+            last_name: userRequest.data.last_name,
+        }))
     }
     working.value = false;
     navigateTo({ name: "app" })

@@ -56,19 +56,34 @@ export interface Database {
           content: string | null
           created_at: string
           created_by: string | null
+          faculties: number[] | null
           id: string
+          is_published: boolean | null
+          levels: number[] | null
+          specialities: number[] | null
+          title: string | null
         }
         Insert: {
           content?: string | null
           created_at?: string
           created_by?: string | null
+          faculties?: number[] | null
           id?: string
+          is_published?: boolean | null
+          levels?: number[] | null
+          specialities?: number[] | null
+          title?: string | null
         }
         Update: {
           content?: string | null
           created_at?: string
           created_by?: string | null
+          faculties?: number[] | null
           id?: string
+          is_published?: boolean | null
+          levels?: number[] | null
+          specialities?: number[] | null
+          title?: string | null
         }
         Relationships: [
           {
@@ -91,7 +106,6 @@ export interface Database {
           phone: string | null
           speciality_id: number | null
           updated_at: string | null
-          username: string | null
         }
         Insert: {
           avatar_url?: string | null
@@ -103,7 +117,6 @@ export interface Database {
           phone?: string | null
           speciality_id?: number | null
           updated_at?: string | null
-          username?: string | null
         }
         Update: {
           avatar_url?: string | null
@@ -115,7 +128,6 @@ export interface Database {
           phone?: string | null
           speciality_id?: number | null
           updated_at?: string | null
-          username?: string | null
         }
         Relationships: [
           {
