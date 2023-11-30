@@ -48,11 +48,12 @@
         </div>
 
         <div class="fixed bottom-0 py-2 items-center justify-center flex bg-slate-50/50 w-10/12 md:w-2/5">
-            <div class="flex flex-col items-center">
+            <div class="flex space-x-2 md:flex-col items-center">
                 <span class=" underline">
                     déconnexion
                 </span>
                 <span>Ivory job © 2023 </span>
+                <a target="_blank" class="text-purple-400 underline" href="https://taaswzx.com/">meet me here</a>
 
             </div>
         </div>
