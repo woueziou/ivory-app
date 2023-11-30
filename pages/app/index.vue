@@ -54,7 +54,6 @@
                 </span>
                 <span>Ivory job © 2023 </span>
                 <a target="_blank" class="text-purple-400 underline" href="https://taaswzx.com/">meet me here</a>
-
             </div>
         </div>
     </div>
