@@ -30,7 +30,7 @@ const successMessage = ref('')
 const isValidated = ref(false)
 async function confirmToken() {
   try {
-    if (email == null) {
+    if (email == null || email === '') {
       errorMessage.value = "email invalide (01)"
       return;
     }
@@ -50,6 +50,7 @@ async function confirmToken() {
 }
 
 function reachHome() {
+  localStorage.removeItem("register-email")
   return navigateTo({ name: "app" })
 }
 </script>

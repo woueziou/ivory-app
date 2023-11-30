@@ -13,15 +13,18 @@
 
             <div class="flex flex-col w-2/5 gap-1">
                 <label for="email">Email</label>
-                <InputText id="email" />
+                <InputText id="email" v-model="credentials.email" />
             </div>
             <div class="flex flex-col w-2/5 gap-1">
                 <label for="password">Mot de passe</label>
-                <InputText id="password" type="password" />
+                <InputText id="password" type="password" v-model="credentials.password" />
             </div>
             <div class="h-4"></div>
+            <div>
+                <InlineMessage severity="error" v-if="errorMsg.length > 0">{{ errorMsg }}</InlineMessage>
+            </div>
             <div class="w-2/5">
-                <Button label="Se connecter"  @click="login" class="w-full" />
+                <Button :loading="working" label="Se connecter" @click="login" class="w-full" />
             </div>
 
 
@@ -36,8 +39,24 @@
 
 <script setup lang="ts">
 
+const supabase = useSupabaseClient()
+const credentials = ref({
+    email: "", password: "",
+})
+const errorMsg = ref("")
+const working = ref(false)
 async function login() {
-    navigateTo({name:"app"})
+    if (working.value) { return; }
+    errorMsg.value=''
+    working.value = true;
+    const response = await supabase.auth.signInWithPassword({ email: credentials.value.email, password: credentials.value.password })
+    if (response.error) {
+        errorMsg.value = response.error.message
+        working.value = false;
+        return;
+    }
+    working.value = false;
+    navigateTo({ name: "app" })
 }
 </script>
 
